@@ -1,7 +1,6 @@
 x = -20
 y = -1
 
-
 if x > 0 and y > 0:
     print(f"Point P=({x}, {y}) lies in first quadrant")
 elif x < 0 and y > 0:
