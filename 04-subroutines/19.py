@@ -1,10 +1,6 @@
-def power(x, n):
-    return power_helper(x, n)    
+def is_in_range(n, x, y):
+    return x <= n <= y
 
-def power_helper(x, n, accumulator = 1):
-    if n == 0:
-        return accumulator
-    
-    return power_helper(x, n - 1, accumulator * x)
-
-print(f"{power_helper(2, 10)}")
+print(is_in_range(3, 0, 2))
+print(is_in_range(10, 10, 11))
+print(is_in_range(-2, -1, 0))
