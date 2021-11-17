@@ -1,0 +1,21 @@
+1, 2:
+CREATE TABLE wydawnictwo (id int AUTO_INCREMENT, nazwa_wydawnictwa varchar(20), adres varchar(50), rok_zalozenia int, numer_fax TEXT, e_mail varchar(10), nazwisko_prezesa varchar(20), PRIMARY KEY(id));
+4, 5:
+CREATE TABLE uczen (id int AUTO_INCREMENT, imie varchar(20), nazwisko varchar(20), klasa int, wiek int, miesiac_przyjecia int, adres varchar(50), ostatni_rok_nauki varchar(3), PRIMARY KEY(id));
+CREATE TABLE ksiazka (id int AUTO_INCREMENT, tytul varchar(20), autor varchar(50), id_wydawnictwa int, rok_wydania int, id_ucznia int, FOREIGN KEY(id_wydawnictwa) REFERENCES wydawnictwo(id), FOREIGN KEY(id_ucznia) REFERENCES uczen(id), PRIMARY KEY(id));
+
+
+CREATE TABLE oceny (id int AUTO_INCREMENT, przedmiot varchar(15), id_ucznia int, wartosc int, FOREIGN KEY(id_ucznia) REFERENCES uczen(id), PRIMARY KEY(id));
+
+
+5a: SELECT klasa, COUNT(klasa) AS "w klasie" FROM uczen GROUP BY klasa;
+
+5b: SELECT imie, nazwisko, wiek FROM uczen;
+
+5c: SELECT uczen.imie, COUNT(uczen.imie) AS "wypozyczone_ksiazki" FROM ksiazka INNER JOIN uczen ON ksiazka.id_ucznia = uczen.id GROUP BY uczen.imie;
+
+5d: SELECT imie, nazwisko FROM uczen WHERE miesiac_przyjecia BETWEEN 8 AND 10;
+
+5e: SELECT imie, nazwisko FROM uczen WHERE imie LIKE "M%";
+
+5h: DELETE FROM ksiazka WHERE rok_wydania < 1989;
