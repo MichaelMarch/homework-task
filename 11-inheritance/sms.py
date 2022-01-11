@@ -8,9 +8,9 @@ class SMS(Message):
     
     def send(self):
         msg = (
-            "Sending message..."
-            f"From:    {self.sender}"
-            f"To:      {self.receiver}"
+            "Sending message...\n"
+            f"From:    {self.sender}\n"
+            f"To:      {self.receiver}\n"
             f"{self.message}"
         )
         print(msg)
